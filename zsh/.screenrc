@@ -1,0 +1,26 @@
+escape ^Tt
+vbell off
+bind w windowlist -b
+#termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+#termcapinfo xterm XT
+#termcapinfo xterm* LP:hs
+startup_message off
+#markkeys h=^B:l=^F:$=^E:^U=^Z:^D=^V
+hardstatus alwayslastline "[%02c %y/%02m/%02d] %`%-w%{=b bw}%n %t%{-}%+w"
+
+#アクティブなウィンドウを色付き反転させて時刻を表示させる
+#hardstatus alwayslastline "%{= Wr}[%m/%d %02c:%s]%016=%{= WK}%-w%50>%{= rW}%n %t%{-}%+w%-0< %="
+#
+defscrollback 1000                      # default: 100
+shell  $SHELL
+caption splitonly " %w --- %c:%s"
+wrap on
+defutf8 on
+defkanji utf-8
+encoding utf-8 utf-8
+defencoding utf-8
+
+bind 'U' eval "encoding utf-8" "stuff 'export LANG=ja_JP.UTF-8\012'"
+bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
+autodetach on
+
